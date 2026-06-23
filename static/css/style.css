@@ -10,7 +10,6 @@ body {
 
 }
 
-
 .container {
 
     width: 90%;
@@ -73,9 +72,17 @@ button:hover {
 
     color: black;
 
+    transform: translateY(-3px);
+
     box-shadow:
 
         0 0 20px #00ff66;
+
+}
+
+button {
+
+    transition: .3s;
 
 }
 
@@ -133,16 +140,95 @@ button:hover {
 
     padding: 25px;
 
-    border-radius: 15px;
+    border-radius: 20px;
 
-    border: 1px solid #00ff66;
+    border: 2px solid #00ff66;
 
     box-shadow:
 
-        0 0 15px rgba(0,255,102,.3);
+        0 0 15px rgba(0,255,102,.4),
+
+        inset 0 0 10px rgba(0,255,102,.15);
+
+    animation: floatCard 4s ease-in-out infinite;
+
+    position: relative;
+
+    overflow: hidden;
 
 }
 
+@keyframes floatCard {
+
+    0% {
+
+        transform: translateY(0px);
+
+    }
+
+    25% {
+
+        transform: translateY(-12px);
+
+    }
+
+    50% {
+
+        transform: translateY(-20px);
+
+    }
+
+    75% {
+
+        transform: translateY(-12px);
+
+    }
+
+    100% {
+
+        transform: translateY(0px);
+
+    }
+
+}
+
+.welcome-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00ff66,
+        transparent
+    );
+
+    animation: borderGlow 3s linear infinite;
+
+    z-index: -1;
+
+}
+@keyframes borderGlow {
+
+    0% {
+
+        transform: translateX(-100%);
+
+    }
+
+    100% {
+
+        transform: translateX(100%);
+
+    }
+
+}
 
 .welcome-card ul {
 
@@ -356,5 +442,38 @@ hr {
     color: #777777;
 
     padding-bottom: 20px;
+
+}
+
+/* SMOKE Logo Animation */
+
+.logo {
+
+    animation: smokeFade 2.5s ease-in-out;
+
+}
+
+
+@keyframes smokeFade {
+
+    0% {
+
+        opacity: 0;
+
+        filter: blur(15px);
+
+        transform: translateY(20px);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        filter: blur(0);
+
+        transform: translateY(0);
+
+    }
 
 }
