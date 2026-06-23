@@ -1,0 +1,57 @@
+Target : 127.0.0.1
+
+Port : 21
+Service : ftp
+Risk : No Risk
+Recommendation : Disable anonymous FTP access.
+
+Port : 22
+Service : ssh
+Risk : No Risk
+Recommendation : Use key-based authentication.
+
+Port : 23
+Service : telnet
+Risk : No Risk
+Recommendation : Disable Telnet and use SSH.
+
+Port : 25
+Service : smtp
+Risk : No Risk
+Recommendation : Restrict SMTP relay.
+
+Port : 53
+Service : domain
+Risk : No Risk
+Recommendation : Restrict DNS zone transfers.
+
+Port : 80
+Service : http
+Risk : No Risk
+Recommendation : Use HTTPS instead of HTTP.
+
+Port : 110
+Service : pop3
+Risk : No Risk
+Recommendation : Use POP3S.
+
+Port : 143
+Service : imap
+Risk : No Risk
+Recommendation : Use IMAPS.
+
+Port : 443
+Service : https
+Risk : No Risk
+Recommendation : Keep SSL certificates updated.
+
+Port : 3306
+Service : mysql
+Risk : Medium
+Recommendation : Restrict MySQL access.
+
+Port : 3389
+Service : ms-wbt-server
+Risk : No Risk
+Recommendation : Enable MFA and limit RDP exposure.
+

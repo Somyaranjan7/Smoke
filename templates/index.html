@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1 class="logo">
+
+        SMOKE
+
+    </h1>
+
+    <p class="tagline">
+
+        Vulnerability Scanner and Security Assessment Tool
+
+    </p>
+
+    <br>
+
+    {% if current_user.is_authenticated %}
+
+    <div class="welcome-card">
+
+        <h2>
+
+            Welcome, {{ current_user.username }}
+
+        </h2>
+
+        <p>
+
+            Ready to scan and monitor your network.
+
+        </p>
+
+    </div>
+
+    {% else %}
+
+    <div class="welcome-card">
+
+        <h2>
+
+            Welcome to Smoke
+
+        </h2>
+
+        <p>
+
+            Login to enjoy all features including:
+
+        </p>
+
+        <ul>
+
+            <li>Scan History</li>
+
+            <li>TXT Reports</li>
+
+            <li>PDF Reports</li>
+
+            <li>Repeat Port Scan</li>
+
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+    <br>
+
+    <form method="POST"
+          onsubmit="return validateTarget()">
+
+        <label>
+
+            IP Address / Hostname
+
+        </label>
+
+        <br><br>
+
+        <input
+        type="text"
+        id="target"
+        name="target"
+        placeholder="Example: scanme.nmap.org"
+        required>
+
+        <br><br>
+
+        <button type="submit">
+
+            Start Scan
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

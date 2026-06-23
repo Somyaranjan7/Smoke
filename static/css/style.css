@@ -1,0 +1,360 @@
+body {
+
+    background-color: #050505;
+
+    color: white;
+
+    font-family: Consolas, monospace;
+
+    margin: 0;
+
+}
+
+
+.container {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+/* HEADINGS */
+
+h1,
+h2,
+h3 {
+
+    text-align: center;
+
+    color: #00ff66;
+
+}
+
+
+/* LINKS */
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+/* BUTTONS */
+
+button {
+
+    background-color: black;
+
+    color: #00ff66;
+
+    border: 1px solid #00ff66;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: .3s;
+
+}
+
+
+button:hover {
+
+    background-color: #00ff66;
+
+    color: black;
+
+    box-shadow:
+
+        0 0 20px #00ff66;
+
+}
+
+
+/* HOME PAGE */
+
+.hero {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+}
+
+
+.logo {
+
+    font-size: 80px;
+
+    font-weight: bold;
+
+    color: #00ff66;
+
+    letter-spacing: 10px;
+
+    text-shadow:
+
+        0 0 10px #00ff66,
+
+        0 0 20px #00ff66,
+
+        0 0 40px #00ff66;
+
+}
+
+
+.tagline {
+
+    color: #aaaaaa;
+
+    font-size: 20px;
+
+}
+
+
+/* WELCOME CARD */
+
+.welcome-card {
+
+    background-color: #111111;
+
+    width: 500px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    border: 1px solid #00ff66;
+
+    box-shadow:
+
+        0 0 15px rgba(0,255,102,.3);
+
+}
+
+
+.welcome-card ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+
+.welcome-card li {
+
+    margin: 10px;
+
+}
+
+
+/* REPORT PAGE */
+
+.report-section {
+
+    text-align: center;
+
+    margin-top: 40px;
+
+}
+
+
+.report-title {
+
+    font-size: 42px;
+
+    color: #00ff66;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 50px;
+
+    text-shadow:
+
+        0 0 10px #00ff66,
+
+        0 0 20px #00ff66;
+
+}
+
+
+.report-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.report-button {
+
+    background-color: black;
+
+    color: #00ff66 !important;
+
+    padding: 18px 35px;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    border: 1px solid #00ff66;
+
+    transition: .3s;
+
+}
+
+
+.report-button:hover {
+
+    background-color: #00ff66;
+
+    color: black !important;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+
+        0 0 20px #00ff66;
+
+}
+
+
+/* TXT REPORT PAGE */
+
+pre {
+
+    background-color: #111111;
+
+    color: #00ff66;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    border: 1px solid #00ff66;
+
+    overflow-x: auto;
+
+    white-space: pre-wrap;
+
+    box-shadow:
+
+        0 0 15px rgba(0,255,102,.3);
+
+}
+
+
+/* SCAN RESULT CARDS */
+
+.result-card {
+
+    background-color: #111111;
+
+    border: 1px solid #00ff66;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+
+        0 0 15px rgba(0,255,102,.25);
+
+}
+
+
+/* PORT NUMBER */
+
+.port-title {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #00ff66;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* PARAGRAPHS */
+
+p {
+
+    line-height: 1.8;
+
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background-color: black;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background-color: #00ff66;
+
+    border-radius: 20px;
+
+}
+
+
+/* HORIZONTAL LINE */
+
+hr {
+
+    border: none;
+
+    border-top: 1px solid #00ff66;
+
+}
+
+
+/* FOOTER */
+
+.footer {
+
+    text-align: center;
+
+    margin-top: 50px;
+
+    color: #777777;
+
+    padding-bottom: 20px;
+
+}

@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>
+
+Scan Results
+
+</h2>
+
+
+<table border="1">
+
+<tr>
+
+<th>
+Port
+</th>
+
+<th>
+State
+</th>
+
+<th>
+Service
+</th>
+
+<th>
+Version
+</th>
+
+<th>
+Risk
+</th>
+
+<th>
+Recommendation
+</th>
+
+<th>
+Action
+</th>
+
+</tr>
+
+
+{% for port, details in results.items() %}
+
+<tr>
+
+<td>
+
+{{ port }}
+
+</td>
+
+<td>
+
+{{ details.state }}
+
+</td>
+
+<td>
+
+{{ details.service }}
+
+</td>
+
+<td>
+
+{{ details.version }}
+
+</td>
+
+<td>
+
+{% if details.risk == "High" %}
+
+<span class="high-risk">
+
+{{ details.risk }}
+
+</span>
+
+{% elif details.risk == "Medium" %}
+
+<span class="medium-risk">
+
+{{ details.risk }}
+
+</span>
+
+{% elif details.risk == "Low" %}
+
+<span class="low-risk">
+
+{{ details.risk }}
+
+</span>
+
+{% else %}
+
+<span class="no-risk">
+
+{{ details.risk }}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td style="text-align:left;">
+
+{{ details.recommendation }}
+
+</td>
+
+<td>
+
+{% if details.state=="open" %}
+
+{% if current_user.is_authenticated %}
+
+<form action="/repeat_scan" method="POST">
+
+<input
+type="hidden"
+name="ip"
+value="{{ target }}">
+
+<input
+type="hidden"
+name="port"
+value="{{ port }}">
+
+<button type="submit">
+
+Repeat Scan
+
+</button>
+
+</form>
+
+{% else %}
+
+<a href="/login">
+
+<button>
+
+Login to Fix
+
+</button>
+
+</a>
+
+{% endif %}
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<br>
+
+
+{% if current_user.is_authenticated %}
+
+<div class="report-section">
+
+    <h1 class="report-title">
+
+        Reports
+
+    </h1>
+
+    <div class="report-buttons">
+
+        <a href="{{ txt_path }}"
+           class="report-button">
+
+            Download TXT Report
+
+        </a>
+
+        <a href="{{ pdf_path }}"
+           class="report-button">
+
+            Download PDF Report
+
+        </a>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<hr>
+
+<h3>
+
+Login to:
+
+</h3>
+
+<ul>
+
+<li>
+
+Download TXT report
+
+</li>
+
+<li>
+
+Download PDF report
+
+</li>
+
+<li>
+
+Save scan history
+
+</li>
+
+<li>
+
+Fix ports
+
+</li>
+
+<li>
+
+Repeat scan
+
+</li>
+
+</ul>
+
+<a href="/login">
+
+<button>
+
+Login
+
+</button>
+
+</a>
+
+{% endif %}
+
+
+{% endblock %}

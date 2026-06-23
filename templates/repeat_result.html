@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>
+
+Repeat Scan Result
+
+</h2>
+
+<table border="1">
+
+<tr>
+
+<th>
+
+IP
+
+</th>
+
+<th>
+
+Port
+
+</th>
+
+<th>
+
+Current State
+
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+
+{{ ip }}
+
+</td>
+
+<td>
+
+{{ result.port }}
+
+</td>
+
+<td>
+
+{{ result.state }}
+
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<a href="/">
+
+<button>
+
+Back
+
+</button>
+
+</a>
+
+{% endblock %}

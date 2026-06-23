@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>
+
+Scan History
+
+</h2>
+
+<table border="1">
+
+<tr>
+
+<th>
+
+Target
+
+</th>
+
+<th>
+
+Time
+
+</th>
+
+<th>
+
+TXT
+
+</th>
+
+<th>
+
+PDF
+
+</th>
+
+</tr>
+
+
+{% for scan in scans %}
+
+<tr>
+
+<td>
+
+{{ scan["target"] }}
+
+</td>
+
+<td>
+
+{{ scan["scan_time"] }}
+
+</td>
+
+<td>
+    <a href="{{ url_for('view_txt_report', scan_id=scan['id']) }}">
+        View TXT
+    </a>
+</td>
+
+<td>
+    <a href="{{ url_for('view_pdf_report', scan_id=scan['id']) }}">
+        View PDF
+    </a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

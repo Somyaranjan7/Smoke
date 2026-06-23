@@ -1,0 +1,37 @@
+Target : 127.0.0.1
+
+Port : 21
+Service : ftp
+Risk : No Risk
+Port : 22
+Service : ssh
+Risk : No Risk
+Port : 23
+Service : telnet
+Risk : No Risk
+Port : 25
+Service : smtp
+Risk : No Risk
+Port : 53
+Service : domain
+Risk : No Risk
+Port : 80
+Service : http
+Risk : No Risk
+Port : 110
+Service : pop3
+Risk : No Risk
+Port : 143
+Service : imap
+Risk : No Risk
+Port : 443
+Service : https
+Risk : No Risk
+Port : 3306
+Service : mysql
+Risk : Medium
+Why dangerous: Exposed MySQL databases may allow unauthorized access.
+Recommendation: Restrict database access to trusted hosts only.
+Port : 3389
+Service : ms-wbt-server
+Risk : No Risk

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+
+        SMOKE - Vulnerability Scanner
+
+    </title>
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/style.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/forms.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/tables.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/dashboard.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/responsive.css'
+    ) }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="nav-logo">
+
+            SMOKE
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+
+                Home
+
+            </a>
+
+            {% if current_user.is_authenticated %}
+
+            <a href="/history">
+
+                History
+
+            </a>
+
+            <a href="/logout"
+               onclick="return confirmLogout()">
+
+                Logout
+
+            </a>
+
+            {% else %}
+
+            <a href="/login">
+
+                Login
+
+            </a>
+
+            <a href="/register">
+
+                Register
+
+            </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        {% with messages = get_flashed_messages() %}
+
+        {% if messages %}
+
+        <div class="flash-container">
+
+            {% for message in messages %}
+
+            <div class="flash-message">
+
+                {{ message }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    <script src="{{ url_for(
+    'static',
+    filename='js/main.js'
+    ) }}"></script>
+
+    <script src="{{ url_for(
+    'static',
+    filename='js/validation.js'
+    ) }}"></script>
+
+    <script src="{{ url_for(
+    'static',
+    filename='js/notifications.js'
+    ) }}"></script>
+
+</body>
+
+</html>
