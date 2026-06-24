@@ -10,32 +10,29 @@
 
     </title>
 
-    <link rel="stylesheet"
-    href="{{ url_for(
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+
+    <link rel="stylesheet" href="{{ url_for(
     'static',
     filename='css/style.css'
     ) }}">
 
-    <link rel="stylesheet"
-    href="{{ url_for(
+    <link rel="stylesheet" href="{{ url_for(
     'static',
     filename='css/forms.css'
     ) }}">
 
-    <link rel="stylesheet"
-    href="{{ url_for(
+    <link rel="stylesheet" href="{{ url_for(
     'static',
     filename='css/tables.css'
     ) }}">
 
-    <link rel="stylesheet"
-    href="{{ url_for(
+    <link rel="stylesheet" href="{{ url_for(
     'static',
     filename='css/dashboard.css'
     ) }}">
 
-    <link rel="stylesheet"
-    href="{{ url_for(
+    <link rel="stylesheet" href="{{ url_for(
     'static',
     filename='css/responsive.css'
     ) }}">
@@ -48,7 +45,9 @@
 
         <div class="nav-logo">
 
-            SMOKE
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="SMOKE Logo" class="logo-img">
+
+            <span>SMOKE</span>
 
         </div>
 
@@ -68,8 +67,7 @@
 
             </a>
 
-            <a href="/logout"
-               onclick="return confirmLogout()">
+            <a href="/logout" onclick="return confirmLogout()">
 
                 Logout
 
