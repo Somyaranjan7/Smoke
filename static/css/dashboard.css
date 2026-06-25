@@ -17,19 +17,68 @@
 
 .nav-logo {
 
-    font-size: 42px;
-
     color: #00ff66;
 
-    letter-spacing: 4px;
+    font-size: 40px;
 
     font-weight: bold;
+
+    letter-spacing: 3px;
 
     text-shadow:
 
         0 0 10px #00ff66,
 
         0 0 20px #00ff66;
+
+}
+
+
+.logo-colon {
+
+    color: rgb(5, 185, 155);
+
+}
+
+
+.logo-subtitle {
+
+    color: rgb(7, 209, 179);
+
+    font-size: 24px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    text-shadow: none;
+
+}
+
+
+@keyframes glow {
+
+    from {
+
+        text-shadow:
+
+            0 0 10px #00ff66,
+
+            0 0 20px #00ff66;
+
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 20px #00ff66,
+
+            0 0 40px #00ff66,
+
+            0 0 60px #00ff66;
+
+    }
 
 }
 
@@ -45,18 +94,35 @@
 
 .nav-links a {
 
-    color: white;
+    color: #00ff66;
 
-    font-size: 18px;
+    background-color: #101010;
+
+    border: 1px solid #00ff66;
+
+    padding: 10px 22px;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    font-weight: bold;
 
     transition: .3s;
 
 }
 
-
 .nav-links a:hover {
 
-    color: #00ff66;
+    background-color: #00ff66;
+
+    color: black;
+
+    box-shadow:
+
+        0 0 15px #00ff66;
+
+    transform: translateY(-2px);
 
 }
 
