@@ -195,6 +195,11 @@ def register():
 
         password = request.form["password"]
 
+        confirm_password = request.form[ "confirm_password" ] # Password check 
+        if password != confirm_password: 
+            flash( "Passwords do not match" ) 
+            return redirect( "/register" )
+
         existing_user = get_user(username)
 
         if existing_user:
