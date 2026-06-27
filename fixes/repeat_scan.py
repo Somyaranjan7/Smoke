@@ -1,6 +1,5 @@
 import nmap
 
-
 def repeat_scan(ip, port):
 
     nm = nmap.PortScanner()
