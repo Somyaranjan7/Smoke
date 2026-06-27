@@ -1,0 +1,41 @@
+Target : 192.168.29.1
+
+Port : 21
+Service : ftp
+Risk : No Risk
+Port : 22
+Service : ssh
+Risk : No Risk
+Port : 23
+Service : telnet
+Risk : No Risk
+Port : 25
+Service : smtp
+Risk : No Risk
+Port : 53
+Service : domain
+Risk : Low
+Why dangerous: Open ports increase the attack surface of the system.
+Recommendation: Close unnecessary services and restrict access.
+Port : 80
+Service : http
+Risk : Low
+Why dangerous: HTTP traffic is unencrypted and vulnerable to interception.
+Recommendation: Redirect users to HTTPS.
+Port : 110
+Service : pop3
+Risk : No Risk
+Port : 143
+Service : imap
+Risk : No Risk
+Port : 443
+Service : http
+Risk : Low
+Why dangerous: HTTPS services may expose web vulnerabilities if misconfigured.
+Recommendation: Keep web applications updated and use strong TLS settings.
+Port : 3306
+Service : mysql
+Risk : No Risk
+Port : 3389
+Service : ms-wbt-server
+Risk : No Risk

@@ -16,17 +16,11 @@ function confirmLogout() {
 }
 
 
-// ======================================
+// ===============================
 // Scan Loading Animation
-// ======================================
+// ===============================
 
 function startScan() {
-
-    if (!validateTarget()) {
-
-        return false;
-
-    }
 
     const overlay = document.getElementById(
         "scanOverlay"
@@ -50,15 +44,13 @@ function startScan() {
 
         "Initializing scanner...",
 
-        "Resolving hostname...",
+        "Resolving target...",
 
-        "Checking target availability...",
+        "Checking host availability...",
 
         "Scanning open ports...",
 
         "Detecting services...",
-
-        "Enumerating versions...",
 
         "Analyzing vulnerabilities...",
 
@@ -68,65 +60,57 @@ function startScan() {
 
     let progress = 0;
 
-    let stage = 0;
+    let messageIndex = 0;
 
-    setInterval(function () {
+    const timer = setInterval(function () {
 
-        // Much slower and smoother
+        // Fast at first, slower later
+        if (progress < 30) {
 
-        if (progress < 20) {
-
-            progress += 1.1;
-
-        }
-
-        else if (progress < 40) {
-
-            progress += 0.75;
+            progress += Math.random() * 6;
 
         }
 
         else if (progress < 60) {
 
-            progress += 0.60;
+            progress += Math.random() * 3;
 
         }
 
-        else if (progress < 80) {
+        else if (progress < 85) {
 
-            progress += 0.50;
-
-        }
-
-        else if (progress < 92) {
-
-            progress += 0.22;
+            progress += Math.random() * 1.8;
 
         }
 
-        else if (progress < 98) {
+        else if (progress < 99) {
 
-            progress += 0.10;
+            progress += Math.random() * 0.5;
+
+        }
+
+        if (progress > 99) {
+
+            progress = 99;
 
         }
 
         bar.style.width = progress + "%";
 
-        percent.innerHTML = Math.floor(progress) + "%";
+        percent.innerHTML =
+            Math.floor(progress) + "%";
 
-        const newStage = Math.floor(progress / 14);
+        const stage = Math.floor(progress / 15);
 
         if (
-
-            newStage != stage &&
-
-            newStage < messages.length
-
+            stage < messages.length &&
+            stage !== messageIndex
         ) {
 
-            stage = newStage;
+            messageIndex = stage;
 
-            text.innerHTML = messages[stage];
+            text.innerHTML =
+                messages[stage];
 
         }
 

@@ -10,6 +10,7 @@ from flask import (
 
 from datetime import datetime
 import socket
+import ipaddress
 
 from flask_login import (
     LoginManager,
@@ -38,6 +39,7 @@ from database.queries import (
 from scanner.scanner_engine import run_scan
 from reports.report_manager import generate_reports
 from fixes.repeat_scan import repeat_scan
+from scanner.host_discovery import discover_hosts
 
 
 app = Flask(__name__)
@@ -94,6 +96,18 @@ def load_user(user_id):
 
 def is_valid_target(target):
 
+    # Accept CIDR networks
+    try:
+
+        ipaddress.ip_network(target, strict=False)
+
+        return True
+
+    except ValueError:
+
+        pass
+
+    # Accept single IPs and hostnames
     try:
 
         socket.gethostbyname(target)
@@ -116,12 +130,27 @@ def index():
 
         target = request.form["target"]
 
+        scan_type = request.form["scan_type"]
+
         if not is_valid_target(target):
 
             flash("Invalid IP address or hostname")
 
             return redirect("/")
 
+        if scan_type == "network":
+
+            hosts = discover_hosts(target)
+
+            return render_template(
+
+                "network_results.html",
+
+                target=target,
+
+                 hosts=hosts
+
+             )
         results = run_scan(target)
 
         scan_id = None

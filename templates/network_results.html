@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>
+
+Discovered Hosts
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>
+
+IP Address
+
+</th>
+
+<th>
+
+Status
+
+</th>
+
+<th>
+
+Action
+
+</th>
+
+</tr>
+
+{% for host in hosts %}
+
+<tr>
+
+<td>
+
+{{ host.ip }}
+
+</td>
+
+<td>
+
+{{ host.status }}
+
+</td>
+
+<td>
+
+<form
+action="/"
+method="POST"
+onsubmit="return startScan()">
+
+<input
+type="hidden"
+name="target"
+value="{{ host.ip }}">
+
+<input
+type="hidden"
+name="scan_type"
+value="single">
+
+<button
+type="submit">
+
+Scan Host
+
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<!-- Loading Overlay -->
+
+<div
+id="scanOverlay"
+class="scan-overlay">
+
+    <div class="scan-window">
+
+        <h2>
+
+            Scanning Target...
+
+        </h2>
+
+        <div class="progress-container">
+
+            <div
+            id="progressBar"
+            class="progress-bar">
+
+            </div>
+
+        </div>
+
+        <h3
+        id="progressPercent">
+
+            0%
+
+        </h3>
+
+        <p
+        id="progressText">
+
+            Initializing scanner...
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}
