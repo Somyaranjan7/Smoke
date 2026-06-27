@@ -70,8 +70,7 @@
 
     <br>
 
-    <form method="POST"
-          onsubmit="return validateTarget()">
+    <form method="POST" onsubmit="return startScan()">
 
         <label>
 
@@ -97,6 +96,46 @@
         </button>
 
     </form>
+
+</div>
+
+<div
+id="scanOverlay"
+class="scan-overlay">
+
+    <div class="scan-window">
+
+        <h2>
+
+            Scanning Target...
+
+        </h2>
+
+        <div class="progress-container">
+
+            <div
+            id="progressBar"
+            class="progress-bar">
+
+            </div>
+
+        </div>
+
+        <h1
+        id="progressPercent">
+
+            0%
+
+        </h1>
+
+        <p
+        id="progressText">
+
+            Initializing scanner...
+
+        </p>
+
+    </div>
 
 </div>
 
